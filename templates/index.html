@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="color:blue">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Student Pass/Fail prediction</h2>
+            <h3>Age</h3>
+            <input id="first" name="age" type="number ">
+            <h3>What is the Program Duration?(In Days)</h3><br><input id="second" name="program_duration" required="required">
+                <option value="117">117</option>
+                <option value="120">120</option>
+                <option value="121">121</option>
+                <option value="122">122</option>
+                <option value="130">130</option>
+                <option value="131">131</option>
+                <option value="133">133</option>
+                <option value="134">134</option>
+                <option value="135">135</option>
+                <option value="136">136</option>
+            </select>
+            <h3>What is the city-tier?</h3><input id="third" name="city_tier" required="required">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select> 
+            <h3>Total number of programs enrolled?</h3><br><input id="fourth" name="total_programs_enrolled" required="required">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+            </select>
+            <h3>Trainee engagement rating?</h3><br><input id="fifth" name="trainee_engagement_rating" required="required">
+                <option value="1.0">1.0</option>
+                <option value="2.0">2.0</option>
+                <option value="3.0">3.0</option>
+                <option value="4.0">4.0</option>
+                <option value="5.0">5.0</option>
+            </select>
+            <h3>Program Type?</h3><br><input id="sixth" name="program_type" required="required">
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="V">V</option>
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+                <option value="S">S</option>
+            </select> 
+            <h3>Test type?</h3><br><input id="seventh" name="test_type" required="required">
+                <option value="online">online</option>
+                <option value="offline">offline</option>
+            </select>
+            <h3>Difficulty level?</h3><br><input id="eighth" name="difficulty_level" required="required">
+                <option value="easy">easy</option>
+                <option value="intermediate">intermediate</option>
+                <option value="hard">hard</option>
+                <option value="very hard">vary hard</option>
+            </select> 
+            <h3>What is your gender?</h3><br><select name="gender" id="gender" required="required">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+            <h3>What is your education?</h3><br><select name="education" id="education" required="required">
+                <option value="Matriculation">Matriculation</option>
+                <option value="High School Diploma">High School Diploma</option>
+                <option value="Bachelors">Bachelors</option>
+                <option value="Masters">Masters</option>
+                <option value="No Qualification">No Qualification</option>
+            </select>
+            <h3>Are you handicapped?</h3><br><select name="is_handicapped" id="disabled" required="required">
+                <option value="N">N</option>
+                <option value="Y">Y</option>
+            </select>
+            <br><br><button id="sub" type="submit ">Predict</button>
+            <br>
+
+
+
+
+        </form>
+
+
+
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: lightslategray;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
